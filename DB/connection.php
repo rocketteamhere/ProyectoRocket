@@ -1,8 +1,7 @@
-<?php //Datos de conexión a la base de datos
+﻿<?php //Datos de conexión a la base de datos
 $hostname = 'localhost';
 $database = 'dbrocket';
 $username = 'root';
-$password = 'root';
 $password = '';
 $tablaus ='';
 
