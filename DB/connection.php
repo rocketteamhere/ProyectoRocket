@@ -1,8 +1,9 @@
 <?php //Datos de conexión a la base de datos
 $hostname = 'localhost';
-$database = 'hackrocket';
+$database = 'dbrocket';
 $username = 'root';
 $password = 'root';
+$password = '';
 $tablaus ='';
 
 $mysqli = new mysqli($hostname, $username,$password, $database);
