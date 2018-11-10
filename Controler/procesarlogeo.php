@@ -5,7 +5,7 @@ include("../DB/connection.php");
  
 $login = $_POST['user'];
 $pass = $_POST['pass'];
-if($_POST['txtRuta']=="/index.php")
+if($_POST['txtRuta']=="/vista/Pagina de inicio//index.html")
 {
 	$ruta="Menu.php";
 }
