@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-$file_proceso='Controler/procesarlogeo.php';
+$file_proceso='../../Controler/procesarlogeo.php';
 $ruta=getcwd();
 $archivo_actual = basename($_SERVER['PHP_SELF']);
 ?>
