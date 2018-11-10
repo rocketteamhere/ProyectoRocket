@@ -22,13 +22,7 @@ if(!empty($_POST['user_id'])){
         $data['report'] = $rows['descripcion'];
        // $data['lat'] = $rows['latitud'];
         //$data['lon'] = $rows['latitud'];
-    }else{
-        $data['status'] = 'err';
-        $data['lan'] = '';
-        
     }
-    
-    //returns data as JSON format
-    echo 'json_encode($data)';
+
 }
 ?>

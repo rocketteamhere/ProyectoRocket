@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<? include ("js/crud.php"); ?>
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
@@ -30,12 +31,12 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+<form method="post" name="formulary" id="formulary" class="login100-form validate-form">
+				
 					<span class="login100-form-title">
 						Registro
 						
 					</span>
-
 										
 					<div class="wrap-input100 validate-input" data-validate = "Se requiere de un email: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Usuario">
@@ -54,6 +55,22 @@
 					</div>
 
 
+					<div class="wrap-input100 validate-input" >
+					<input class="input100" type="text" name="nombre" placeholder="Nombre" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" >
+					<input class="input100" type="text" name="ape" placeholder="Apellidos" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Contraeña es requerida">
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
@@ -63,7 +80,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" name="guardar">
 							Registrarse
 							
 						</button>
