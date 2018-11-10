@@ -78,7 +78,7 @@
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
-                    <li><a href="../Login_v1/index.php" >Login</a>
+                    <li><a href="index.html" >Login</a>
                     </li>
                     <li><a href="register.html">Register</a>
                     </li>
@@ -100,6 +100,21 @@
                               app_code: 'pC_Vzr0yRq_eAvk8KfnZXQ',
                               useHTTPS: true
                             });
+                            function buscar()
+                            {
+                                $(document).ready(function ()
+                                {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'connection.php',
+                                        dataType: "json",
+                                        success:function (data)
+                                        {
+                                           console.log(data);                             
+                                        }
+                                        });
+                                    });
+                                }
                             function geocode()
                 { 
                     alert("entraste");
@@ -180,6 +195,7 @@
 
             // Now use the map as required...
             getPosition();
+            buscar();
               </script>
 
 			</div>
