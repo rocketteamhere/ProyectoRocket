@@ -1,49 +1,17 @@
 <?php
 
 include_once '../DB/connection.php';
-$usu= $_SESSION['nombre'];
-/* Inicio Código Insertar */
-//Si se dio clic en guardar:
-if(isset($_POST['guardar'])){
-	//Pasamos los parametros por medio de post
-	$usu = $MySQLiconn->real_escape_string($_POST['email']);
-	$new =$MySQLiconn->real_escape_string($_POST['telefono']);   
-	$confi = $MySQLiconn->real_escape_string($_POST['pass']);
-
-	
-		$resultado = $MySQLiconn->query("SELECT usuario FROM users where usuario='$usu'");
-		while ($rows = $resultado->fetch_array()) {
-			if($rows['usuario']!=$usu)
-					$SQL = $MySQLiconn->query("UPDATE usuarios SET contrasenia=AES_ENCRYPT('$new','667') WHERE nombre='$usu'");
-					if(!$SQL){
-	 					//Mandar el mensaje de error
-		 				echo $MySQLiconn->error;
-	 				}
-	  				else{
-	 					//Mandamos un mensaje de exito:
-						echo"<script>alert('Se ha Modificado la contraseña')</script>";
-						echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=newpass.php'>";
-	 				}
-				}
-			}
-		}
-	}
-}
-/* Fin Código Insertar */
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-/* Inicio Código Insertar */
 //Si se dio clic en guardar:
 if(isset($_POST['saveUser'])){
 	//Pasamos los parametros por medio de post
-	$nombre = $MySQLiconn->real_escape_string($_POST['example']);
-	$rol =$MySQLiconn->real_escape_string($_POST['rol']);   
-	$newuser = $MySQLiconn->real_escape_string($_POST['usuario']);
-	$clave = $MySQLiconn->real_escape_string($_POST['contra']);
-	$confclave = $MySQLiconn->real_escape_string($_POST['confirmar']);
+	$newuser = $MySQLiconn->real_escape_string($_POST['user']);
+	$nombre =$MySQLiconn->real_escape_string($_POST['nombre']);   
+	$ape = $MySQLiconn->real_escape_string($_POST['ape']);
+	$pass = $MySQLiconn->real_escape_string($_POST['pass']);
+	$tel = $MySQLiconn->real_escape_string($_POST['telefono']);
 
 	$contador=0;
-	$resultado = $MySQLiconn->query("SELECT * FROM usuarios");
+	$resultado = $MySQLiconn->query("SELECT usuario FROM users");
 
 	while ($rows = $resultado->fetch_array()) {
 		if ($rows["usuario"]==$newuser) {
@@ -51,25 +19,8 @@ if(isset($_POST['saveUser'])){
 		}
 	}
 	if ($contador==0) {
-		if($clave!=$confclave){
-			echo "<script>alert('Las contraseñas son incorrectas')</script>";
-			return 0;
-		}
-		else{ 
 			//Realizamos la consulta
-			$consulta=$MySQLiconn->query("SELECT * FROM empleado where ID=$nombre");
-			$respuesta=$consulta->fetch_array();
-			$name= $respuesta['Nombre'];
-			$perfil='PF'.$respuesta['ID'];
-
-			$segunda=$MySQLiconn->query("SELECT codigo FROM modulo");
-			while ($dos=$segunda->fetch_array()) {
-				$SQLite =$MySQLiconn->query("INSERT INTO accesos(perfil, cdgmodulo, permiso) VALUES('$perfil', '".$dos['codigo']."', 'r--')");
-			}
-
-	 		$SQL =$MySQLiconn->query("INSERT INTO $user(nombre, usuario, contrasenia, perfil, rol) VALUES('$name','$newuser',AES_ENCRYPT('$clave',667), '$perfil','$rol')");
-	 		$update=$MySQLiconn->query("UPDATE $tablaem SET usuario=1 WHERE ID='$nombre'");
-	 		
+	 		$SQL =$MySQLiconn->query("INSERT INTO users(usuario,pass, nombres, apellidos, telefono) VALUES('$newuser','$pass', '$nombre','$ape','$tel')");
 	 		if(!$SQL){	 	//Mandar el mensaje de error
 				echo $MySQLiconn->error;
 	 		} 
@@ -84,24 +35,4 @@ if(isset($_POST['saveUser'])){
 	 	return 0;		
 	}
 }
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-/* Inicio Código Eliminación Logíca */
-//Si se dio clic en Eliminar de forma logica:
-if(isset($_GET['delU'])){
-	$resultado = $MySQLiconn->query("SELECT * FROM usuarios where id=".$_GET['delU']);
-	$rows = $resultado->fetch_array();
-
-	$MySQLiconn->query("UPDATE $tablaem	SET usuario='0' WHERE Nombre='".$rows['nombre']."'");
-	$MySQLiconn->query("DELETE FROM  accesos WHERE perfil='".$rows['perfil']."'");
-	$SQL = $MySQLiconn->query("DELETE FROM  usuarios WHERE id='".$_GET['delU']."'");
-
-	if(!$SQL) {
-	 	//Mandar el mensaje de error
-		echo $MySQLiconn->error;
-	} else{
-		//Mandamos un mensaje de exito:	 
-		echo"<script>alert('Se ha Eliminado el usuario')</script>"; 
-		echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=newUser.php'>";
-	}
-} ?>
+?>

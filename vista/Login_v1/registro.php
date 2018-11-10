@@ -38,16 +38,8 @@
 						
 					</span>
 										
-					<div class="wrap-input100 validate-input" data-validate = "Se requiere de un email: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Usuario">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-					<div class="wrap-input100 validate-input" data-validate = "Se requiere de un telefono: ej: 4776740640">
-						<input class="input100" type="number" name="telefono" placeholder="Telefono" >
+					<div class="wrap-input100 validate-input" data-validate = "Se requiere Nombre de usuario ejemplo: LIRA287">
+						<input class="input100" type="text" name="user" placeholder="Usuario">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -70,7 +62,14 @@
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-
+					
+					<div class="wrap-input100 validate-input" data-validate = "Se requiere de un telefono: ej: 4776740640">
+						<input class="input100" type="number" name="telefono" placeholder="Telefono" >
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Contraeña es requerida">
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
