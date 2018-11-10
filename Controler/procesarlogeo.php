@@ -23,8 +23,6 @@ else
 }
 
  
-//$pass=sha1(md5($pass));
- 
 $query ="SELECT * FROM users WHERE usuario= '$login' && pass = '$pass'";
 
 $result = $mysqli->query($query);
