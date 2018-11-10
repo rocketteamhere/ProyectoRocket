@@ -19,7 +19,7 @@ if(!empty($ruta))
 }
 else
 {
-	$ruta='/vista/Pagina de inicio/index.html';
+	$ruta='/ProyectoRocket/vista/Pagina de inicio/index.html';
 }
 
  
