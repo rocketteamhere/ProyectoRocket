@@ -104,7 +104,7 @@
 
              function geocode()
                 { 
-                    alert("entraste");
+                    
                     var busqueda=document.getElementById("bd").value;
                     var geocoder = platform.getGeocodingService(),
                             geocodingParameters= {
@@ -136,12 +136,11 @@
                 }
                 function onError(error)
                 {
-                    alert('OOPS');
+                    
                 }
                 function setMark(location)
                 {
-                    alert(location[0].location.displayPosition.latitude);
-                     
+                                         
                     map.setCenter({lat:location[0].location.displayPosition.latitude, lng:location[0].location.displayPosition.longitude});
                     map.setZoom(14);    
                     var marker= new H.map.Marker({lat:location[0].location.displayPosition.latitude,lng:location[0].location.displayPosition.longitude});
@@ -152,11 +151,11 @@
                 {
                     if(navigator.geolocation)
                     {
-                     alert("si");
+                     
                      navigator.geolocation.getCurrentPosition(showPosition);
                     }else
                     {
-                        alert("No");
+                        
                     }
                 }
                 function showPosition(position)
