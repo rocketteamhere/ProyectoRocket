@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+$file_proceso='../../Controler/procesarlogeo.php';
+$ruta=getcwd();
+$archivo_actual = basename($_SERVER['PHP_SELF']);
+?>
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
@@ -23,14 +28,14 @@
 </head>
 <body>
 	
-	<div class="limiter">
+		<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form action="<?php echo $file_proceso;?>" method="POST" class="form login">
 					<span class="login100-form-title">
 						Login
 						
@@ -51,27 +56,22 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" value="<?php echo $ruta;?>" name="txtRuta">
 							Ingresar
-							
 						</button>
 					</div>
-
-					
+				</form>
 					<div class="text-center p-t-136">
 						<a class="txt2" href="registro.html">
 							crear una cuenta
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
-				</form>
+	
 			</div>
 		</div>
 	</div>
-	
-	
 
 	
 <!--===============================================================================================-->	

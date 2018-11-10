@@ -31,7 +31,6 @@ $result = $mysqli->query($query);
 //printf($result);
 if ($result->num_rows > 0) {     
 	$row = $result->fetch_array(MYSQLI_ASSOC);
-
 	  	$_SESSION['login']=true;//Sirve para validar la sesion
 	    $_SESSION['usuario'] = $row['usuario'];
 	    $_SESSION['nombre']=$row['nombres'];

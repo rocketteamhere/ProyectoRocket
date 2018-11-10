@@ -1,0 +1,3 @@
+$SQL = $MySQLiconn->query("SELECT * FROM tabla WHERE idconcli=".$_GET['edit']);
+	$getROW = $SQL->fetch_array();
+	
