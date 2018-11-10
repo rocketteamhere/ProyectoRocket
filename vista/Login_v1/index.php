@@ -42,7 +42,7 @@ $archivo_actual = basename($_SERVER['PHP_SELF']);
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Se requiere de un usuario">
-						<input class="input100" type="text" name="email" placeholder="Usuario">
+						<input class="input100" type="text" name="user" placeholder="Usuario">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
