@@ -1,3 +1,10 @@
 $SQL = $MySQLiconn->query("SELECT * FROM tabla WHERE idconcli=".$_GET['edit']);
 	$getROW = $SQL->fetch_array();
 	
+
+
+	$resultado = $MySQLiconn->query("SELECT * FROM $tablacli where bajacli=1 ORDER BY ID DESC;");
+
+while ($rows = $resultado->fetch_array()) {
+
+}
