@@ -5,7 +5,7 @@ include("../DB/connection.php");
  
 $login = $_POST['user'];
 $pass = $_POST['pass'];
-if($_POST['txtRuta']=="/vista/Pagina de inicio//index.html")
+if($_POST['txtRuta']=="/vista/Pagina de inicio/index.html")
 {
 	$ruta="Menu.php";
 }
@@ -19,7 +19,7 @@ if(!empty($ruta))
 }
 else
 {
-	$ruta='../index.php';
+	$ruta='/ProyectoRocket/vista/Pagina de inicio/index.html';
 }
 
  
@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
 	  	$_SESSION['login']=true;//Sirve para validar la sesion
 	    $_SESSION['usuario'] = $row['usuario'];
 	    $_SESSION['nombre']=$row['nombres'];
-	    $_SESSION['apellido']=$rowRol['apellidos'];
+	    $_SESSION['apellido']=$row['apellidos'];
 	    $_SESSION['tel']=$row['telefono'];
 	    $_SESSION['start'] = time();
 	    $_SESSION['expire'] = $_SESSION['start'] + (34000);
