@@ -93,29 +93,31 @@
 	<body>
 
 		<div class="container">
-			  <div id="map" style="width: 100%; height: 800px; background: grey" />
+			  <div id="map" style="width: 100%; height: 800px; background: grey" align="center"  />
                           <script  type="text/javascript" charset="UTF-8" >
                             var platform = new H.service.Platform({
                               app_id: 'lK0SDBh7KhglZdcWnrHW',
                               app_code: 'pC_Vzr0yRq_eAvk8KfnZXQ',
                               useHTTPS: true
                             });
-                            function buscar()
-                            {
-                                $(document).ready(function ()
-                                {
-                                    $.ajax({
-                                        type: 'POST',
-                                        url: 'connection.php',
-                                        dataType: "json",
-                                        success:function (data)
-                                        {
-                                           console.log(data);                             
-                                        }
-                                        });
-                                    });
-                                }
-                            function geocode()
+                            
+                            
+function buscar()
+{
+    $(document).ready(function ()
+    {
+        $.ajax({
+            type: 'POST',
+            url: 'connection.php',
+            dataType: "json",
+            success:function (data)
+            {
+                console.log(data);
+            }
+        });
+    });
+}
+             function geocode()
                 { 
                     alert("entraste");
                     var busqueda=document.getElementById("bd").value;
@@ -142,7 +144,7 @@
                     alert(location[0].location.displayPosition.latitude);
                      
                     map.setCenter({lat:location[0].location.displayPosition.latitude, lng:location[0].location.displayPosition.longitude});
-                    map.setZoom(14);
+                    map.setZoom(14);    
                     var marker= new H.map.Marker({lat:location[0].location.displayPosition.latitude,lng:location[0].location.displayPosition.longitude});
                     map.addObject(marker);
                     
@@ -189,13 +191,11 @@
             // MapEvents enables the event system
             // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
             var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
             // Create the default UI components
             var ui = H.ui.UI.createDefault(map, defaultLayers);
-
             // Now use the map as required...
             getPosition();
-            buscar();
+        
               </script>
 
 			</div>
