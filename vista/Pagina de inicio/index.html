@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="es">
 	<head>
 		<title>Safe destination</title>
@@ -101,22 +100,8 @@
                               useHTTPS: true
                             });
                             
-                            
-function buscar()
-{
-    $(document).ready(function ()
-    {
-        $.ajax({
-            type: 'POST',
-            url: 'connection.php',
-            dataType: "json",
-            success:function (data)
-            {
-                console.log(data);
-            }
-        });
-    });
-}
+                          
+
              function geocode()
                 { 
                     alert("entraste");
@@ -129,6 +114,20 @@ function buscar()
                          geocoder.geocode(geocodingParameters,onSuccess,onError);
                          
                 }
+                $(function(){
+                    var timer = setInterval(update,1000);
+                    var request= $.ajax({
+                        url: "connection.php",
+                        method: "POST",
+                        dataType: "json"
+                    });
+                    request.done(function(datos)
+                    {
+                        console.log(datos.value);
+                    }
+                    );
+                })
+
                 function onSuccess(result)
                 {
                     var locations = result.response.view[0].result;
@@ -195,7 +194,7 @@ function buscar()
             var ui = H.ui.UI.createDefault(map, defaultLayers);
             // Now use the map as required...
             getPosition();
-        
+           
               </script>
 
 			</div>
