@@ -2,7 +2,7 @@
 $json=array();
  $conexion=mysql_connect("localhost","root","","dbrocket");
  $consulta= "SELECT * FROM reportes";
- $resultado = mysql_query($conexion,$consulta);
+ $resultado = mysql_query($consulta,$conexion);
  if($consulta)
  {
     if($reg=mysql_fetch_array($resultado))
